@@ -1,0 +1,21 @@
+{
+  "name": "google-sheet-api",
+  "version": "1.0.1-0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "mocha Test/**/*.test.js --timeout 300000",
+    "watch": "nodemon --exec npm test",
+    "start": "node handler.js"
+  },
+  "author": "Miao Huang",
+  "license": "ISC",
+  "dependencies": {
+    "google-auth-library": "^0.11.0",
+    "googleapis": "^21.3.0"
+  },
+  "devDependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
