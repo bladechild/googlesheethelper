@@ -225,6 +225,25 @@ SheetsHelper.prototype.deleteCells = function(spreadsheetId,sheetId,startRowInde
   });
 }
 
+SheetsHelper.prototype.getCells = function(spreadsheetId,ranges,majorDimension,valueRenderOption,dateTimeRenderOption,callback){
+  var self = this;
+  var request = { 
+    spreadsheetId:spreadsheetId,
+    ranges
+  };
+  if(majorDimension)
+    request.majorDimension = majorDimension;
+  if(valueRenderOption)
+    request.valueRenderOption = valueRenderOption;
+  if(dateTimeRenderOption)
+    request.dateTimeRenderOption = dateTimeRenderOption;
+  self.service.spreadsheets.values.batchGet(request, function(err, spreadsheet) {
+    if (err) {
+      return callback(err);
+    }
+    callback(null,spreadsheet);
+  });
+}
 
 var COLUMNS = [
   { field: 'id', header: 'ID' },

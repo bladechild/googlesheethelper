@@ -231,7 +231,15 @@ function DeleteRangedCells(spreadsheetId,sheetName,startRow,endRow,startColumn,e
     });
 }
 
-module.exports = {CreateSpreadSheet,GetSpreadSheet,UpdateSpreadSheet,UpdateSheetProperties,AddSheet,DeleteSheet,UpdateRows,AddRows,DeleteRangedCells};
+function GetRangedCells(spreadsheetId,ranges,callback)
+{
+    authorize.start((auth)=>{
+        const helper =new SheetsHelper(auth);
+
+        helper.getCells(spreadsheetId,ranges,null,null,null,callback);
+    });
+}
+module.exports = {CreateSpreadSheet,GetSpreadSheet,UpdateSpreadSheet,UpdateSheetProperties,AddSheet,DeleteSheet,UpdateRows,AddRows,DeleteRangedCells,GetRangedCells};
 
 
 
