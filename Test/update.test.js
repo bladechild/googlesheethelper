@@ -15,7 +15,7 @@ describe('Update Spread Sheet',()=>{
     });
 
     it('should update a sheet',(done)=>{
-        UpdateSheetProperties('13WZWyDuSZvd_MhR8UfruD8xy0xIaJ1F45hW16Pki9ZI','My Sheet 4','My Sheet 4',9,9,1,1,false,(error,response)=>{
+        UpdateSheetProperties('13WZWyDuSZvd_MhR8UfruD8xy0xIaJ1F45hW16Pki9ZI','My Sheet 3','My Sheet 3.1',9,9,1,1,false,(error,response)=>{
             if(error)
                 done(error);
             else

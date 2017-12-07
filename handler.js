@@ -110,8 +110,9 @@ function UpdateSheetProperties(spreadsheetId,sheetName,title,rowCount,columnCoun
         const helper =new SheetsHelper(auth);
         helper.getSpreadSheet(spreadsheetId,(error,spreadSheet)=>{
             let sheet = spreadSheet.sheets.find(x=>x.properties.title==sheetName);
+            console.log(sheet);
             if(sheet)
-                helper.updateSheetProperties(spreadsheetId,sheet.properties.sheetId,title,rowCount,columnCount,frozenRowCount,frozenColumnCount,hideGridlines,callback);
+                helper.updateSheetProperties(spreadsheetId,sheet.properties.sheetId,title,sheet.properties.index,rowCount,columnCount,frozenRowCount,frozenColumnCount,hideGridlines,callback);
             else
                 callback(new Error(`${sheetName} does not exist!`));
         });

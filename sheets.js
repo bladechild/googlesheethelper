@@ -58,7 +58,7 @@ SheetsHelper.prototype.updateSpreadSheet = function(spreadsheetId,title,callback
 }
 
 
-SheetsHelper.prototype.updateSheetProperties = function(spreadsheetId,sheetId,title,rowCount,columnCount,frozenRowCount,frozenColumnCount,hideGridlines,callback)
+SheetsHelper.prototype.updateSheetProperties = function(spreadsheetId,sheetId,title,index,rowCount,columnCount,frozenRowCount,frozenColumnCount,hideGridlines,callback)
 {
   var self = this;
   var request = { 
@@ -70,6 +70,7 @@ SheetsHelper.prototype.updateSheetProperties = function(spreadsheetId,sheetId,ti
             properties:{
               sheetId,
               title,
+              index,
               gridProperties:{
                 rowCount,
                 columnCount,
