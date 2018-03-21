@@ -189,15 +189,18 @@ function AddRows(spreadsheetId,sheetName,rows,callback)
             let result = {userEnteredValue:{}};
             switch(typeof data)
             {
-                case 'number': result.userEnteredValue.numberValue = data;break;
-                case 'string': {
-                    if(data.startsWith('='))
+                case 'number': result.userEnteredValue.numberValue = data;
+                    break;
+                case 'string':
+                    if (data.startsWith('='))
                         result.userEnteredValue.formulaValue = data;
                     else
                         result.userEnteredValue.stringValue = data.toString();
                     break;
-                };
-                case 'boolean': result.userEnteredValue.boolValue = data;break;
+                case 'boolean': result.userEnteredValue.boolValue = data;
+                    break;
+                case 'object': result.userEnteredValue.stringValue = '';
+                    break;
                 default: result.userEnteredValue.stringValue = data.toString();
             }
             return result; 
